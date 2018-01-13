@@ -15,7 +15,7 @@ To raise a message with an exception, just write it as an argument to the except
 `raise Exception`, you shold write:
 
 ```python
-raise Exception("Meaningful message indicating the source of the error")
+#raise Exception("Meaningful message indicating the source of the error")
 ```
 
 

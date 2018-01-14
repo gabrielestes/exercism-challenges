@@ -2,9 +2,9 @@ import re
 
 def decode(string):
     decoded_string = ''
-    character_list = re.findall('[0-9]*[A-Za-z]', string)
+    character_list = re.findall('[0-9]*[A-Za-z\s]', string)
     for c in character_list:
-        letter = str(re.search(r'[A-Za-z]', c).group())
+        letter = str(re.search(r'[A-Za-z\s]', c).group())
         if c[0].isdigit():
             num = int(re.search(r'\d+', c).group())
             decoded_string += num * letter

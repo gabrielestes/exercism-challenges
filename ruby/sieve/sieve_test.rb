@@ -38,4 +38,8 @@ class SieveTest < Minitest::Test
     ]
     assert_equal expected, Sieve.new(1000).primes
   end
+
+  def test_bookkeeping
+    assert_equal 1, BookKeeping::VERSION
+  end
 end

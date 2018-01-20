@@ -13,3 +13,7 @@ class Sieve
     prime_nums
   end
 end
+
+module BookKeeping
+  VERSION = 1
+end

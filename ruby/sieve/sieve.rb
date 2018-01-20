@@ -1,24 +1,15 @@
 class Sieve
-  def sieve(num_primes)
-    primes_list =[]
-    composites = {}
-    until primes_list.count == num_primes
-      fetch_primes(num_primes, composites, primes_list)
-    end
+  def initialize(limit)
+    @limit = limit
   end
 
-  def mark_composite(num)
-    composites[num] = 'marked'
-  end
-
-  def fetch_primes(num_primes, composites, primes_list)
-    Inf = 1.0 / 0.0
-    (2..Inf).each do |i|
-      if composites[i]
-        break
-      else
-        primes_list << i
-
+  def primes
+    [] if @limit < 2
+    prime_nums = (2..@limit).to_a
+    prime_nums.each do |n|
+      composites = prime_nums.select { |x| (x % n).zero? }
+      composites.each { |c| prime_nums.delete(c) unless c == n }
     end
+    prime_nums
   end
 end

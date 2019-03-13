@@ -1,10 +1,14 @@
 class Raindrops
   def self.convert(drops)
-    result = ''
-    result += 'Pling' if drops % 3 == 0
-    result += 'Plang' if drops % 5 == 0
-    result += 'Plong' if drops % 7 == 0
-    result = "#{drops}" if drops % 3 != 0 && drops % 5 != 0 && drops % 7 != 0
-    result
+    divisors = {3 => 'Pling', 5 => 'Plang', 7 => 'Plong'}
+    sound = divisors.select do |divisor|
+      (drops % divisor).zero?
+    end.values.join
+
+    sound.empty? ? drops.to_s : sound
   end
+end
+
+module BookKeeping
+  VERSION = 3
 end

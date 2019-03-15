@@ -1,0 +1,3 @@
+python/*/.pytest*
+python/*/__*__
+python/*/*.swp

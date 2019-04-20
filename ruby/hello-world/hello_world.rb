@@ -1,9 +1,5 @@
 class HelloWorld
-  def hello(*names)
-    if names.empty?
-      'Hello, World!'
-    else
-      "Hello, #{names.first}!"
-    end
+  def self.hello(*names)
+    names.empty? ? 'Hello, World!' : "Hello, #{names.first}!"
   end
 end

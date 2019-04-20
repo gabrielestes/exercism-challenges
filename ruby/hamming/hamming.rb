@@ -6,7 +6,3 @@ class Hamming
     nucleotide_pairs.reject { |x, y| x == y }.count
   end
 end
-
-module BookKeeping
-  VERSION = 3
-end

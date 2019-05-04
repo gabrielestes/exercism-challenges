@@ -1,10 +1,10 @@
 class Matrix
-  def initialize(matrix_string)
-    @matrix_string = matrix_string
+  def initialize(raw_matrix)
+    @raw_matrix = raw_matrix
   end
 
   def rows
-    matrix_string.each_line.map do |row|
+    raw_matrix.each_line.map do |row|
       row.split(' ').map(&:to_i)
     end
   end
@@ -15,5 +15,5 @@ class Matrix
 
   private
 
-  attr_reader :matrix_string
+  attr_reader :raw_matrix
 end

@@ -1,6 +1,6 @@
 class Series
   def initialize(raw_number)
-    @number_series = raw_number.split('')
+    @number_series = raw_number.chars
   end
 
   def slices(slice_length)

@@ -1,13 +1,19 @@
 class Phrase
-  attr_reader :words
+  attr_reader :text
+
+  WORD_REGEX = /\b[\w']+\b/.freeze
 
   def initialize(text)
-    @words = text.scan(/\w+'?\w?\b/).map(&:downcase)
+    @text = text
   end
 
   def word_count
-    words.uniq.each_with_object({}) do |word, result|
-      result[word.to_s] = words.count(word)
-    end
+    words.each_with_object(Hash.new(0)) { |word, counts| counts[word] += 1 }
+  end
+
+  private
+
+  def words
+    text.downcase.scan(WORD_REGEX)
   end
 end

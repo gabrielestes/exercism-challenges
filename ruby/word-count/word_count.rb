@@ -1,6 +1,4 @@
 class Phrase
-  attr_reader :text
-
   WORD_REGEX = /\b[\w']+\b/.freeze
 
   def initialize(text)
@@ -12,6 +10,8 @@ class Phrase
   end
 
   private
+
+  attr_reader :text
 
   def words
     text.downcase.scan(WORD_REGEX)

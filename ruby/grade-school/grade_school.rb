@@ -1,5 +1,4 @@
 class School
-  require 'pry'
   def initialize
     # Instantiates a hash with a default proc block allowing new elements to be added to an array value.
     @rosters = Hash.new { |hash, key| hash[key] = [] }

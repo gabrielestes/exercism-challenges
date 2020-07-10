@@ -1,4 +1,10 @@
 class School
+  attr_reader :rosters
+
+  def initialize
+    @rosters = Hash.new { [] }
+  end
+
   # Keys are grades, values are arrays of names.
   # @return [void]
   def add(name, grade)
@@ -11,20 +17,13 @@ class School
     sorted_roster[grade] || []
   end
 
-  # @return [Array<Hash>]
   def students_by_grade
-    sorted_roster.each_with_object([]) do |(grade, grade_students), acc|
-      acc << { grade: grade, students: grade_students }
+    sorted_roster.map do |grade, grade_students|
+      { grade: grade, students: grade_students }
     end
   end
 
   private
-
-  attr_reader :rosters
-
-  def initialize
-    @rosters = Hash.new { [] }
-  end
 
   # Sort keys and values in the roster.
   # @return [Hash]

@@ -36,14 +36,11 @@ class Robot
   end
 
   def advance
-    if @direction == :north
-      @y_coordinate += 1
-    elsif @direction == :south
-      @y_coordinate -= 1
-    elsif @direction == :west
-      @x_coordinate -= 1
-    elsif @direction == :east
-      @x_coordinate += 1
+    case @direction
+    when :north then @y_coordinate += 1
+    when :south then @y_coordinate -= 1
+    when :west then @x_coordinate -= 1
+    when :east then @x_coordinate += 1
     end
   end
 end

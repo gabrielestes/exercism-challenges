@@ -9,7 +9,7 @@ class Robot
   }.freeze
 
   def orient(direction)
-    raise ArgumentError unless DIRECTIONS[direction]
+    raise ArgumentError if DIRECTIONS[direction].nil?
 
     @direction = direction
   end
@@ -62,6 +62,6 @@ class Simulator
   end
 
   def evaluate(robot, steps)
-    instructions(steps).map { |command| robot.send(command) }
+    instructions(steps).each { |command| robot.send(command) }
   end
 end
